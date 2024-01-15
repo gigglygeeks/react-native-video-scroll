@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
+import Video from 'react-native-video';
 import { TouchableOpacity } from 'react-native';
 
 const { height } = Dimensions.get('window');
@@ -10,28 +10,34 @@ interface Props {
   shouldPlay: boolean;
 }
 
+// @ts-ignore:next-line
 const VideoPlayer: React.FC<Props> = ({ url, shouldPlay = false }) => {
-  const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
+  const videoRef = React.useRef<any>(null);
+  const [status, setStatus] = React.useState<any>({});
+
+  const playFunction = async () => {
+    if (!videoRef.current) {
+      return;
+    }
+
+    if (status.isPlaying) await videoRef.current.pause();
+    else await videoRef.current.resume();
+  };
   return (
-    <TouchableOpacity
-      onPress={() =>
-        status.isPlaying
-          ? video.current.pauseAsync()
-          : video.current.playAsync()
-      }
-    >
+    <TouchableOpacity onPress={playFunction}>
       <Video
-        ref={video}
+        ref={videoRef}
         style={styles.video}
         source={{
           uri: url,
         }}
-        resizeMode={ResizeMode.COVER}
-        isLooping
-        shouldPlay={shouldPlay}
-        useNativeControls={false}
-        onPlaybackStatusUpdate={(status) => setStatus(() => status)}
+        repeat
+        paused={!shouldPlay}
+        controls={false}
+        fullscreen
+        resizeMode="cover"
+        // @ts-ignore
+        onPlaybackStateChanged={(state: any) => setStatus(() => state)}
       />
     </TouchableOpacity>
   );

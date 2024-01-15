@@ -46,15 +46,17 @@ const VideoScroll: FC<Props> = ({
 
   /* Listen for changes of current index */
   useEffect(() => {
-    onIndexChanged(currentIndex);
+    onIndexChanged && onIndexChanged(currentIndex);
     if (
-      currentIndex >= content?.length - 1 - refreshOffset &&
+      content &&
+      currentIndex >= content.length - 1 - refreshOffset &&
       lastFetchedIndex !== currentIndex // prevent refetching when scrolling back
     ) {
       setFetching(true);
-      onOffsetReached().then(() => setFetching(false));
+      onOffsetReached && onOffsetReached().then(() => setFetching(false));
       setLastFetchedIndex(currentIndex);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [content?.length, currentIndex]);
 
   /* Called when scrolling to new video */

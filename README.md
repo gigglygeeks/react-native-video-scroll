@@ -2,14 +2,13 @@
 
 VideoScroll is a React Native component for creating a scrollable feed with video content seen in TikTok, Instagram Reels and Youtube Shorts. It provides a smooth scrolling experience with features such as pull-to-refresh, dynamic content loading and customizable rendering.
 
-<img src="./screenshots/example.gif" width="250" />
+<img src="https://github.com/gigglygeeks/react-native-video-scroll/blob/HEAD/screenshots/example.gif?raw=true" width="250" />
 
 ## Installation
 
-#### NOTE: This package is currently in development and has not been published to npm.
-
 ```sh
 npm install react-native-video-scroll
+npm install --save react-native-video@beta
 ```
 
 ## Usage
@@ -165,17 +164,6 @@ const yourCustomElementCallback = (item: Content) => (
 - **customElement** _(Function)_: Override the video with your custom element. (Optional)
 
 - **customMenus** _(Function)_: Content to display menus. (Optional)
-
-## Example app
-
-Feel free to try out our example expo app to see VideoScroll in action!
-
-```sh
-git clone https://gitlab.liu.se/rikve590/tddc73-labs.git
-cd tddc73-labs/project/react-native-video-scroll/example
-yarn install
-yarn start
-```
 
 ## Contributing
 

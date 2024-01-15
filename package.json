@@ -1,6 +1,6 @@
 {
   "name": "react-native-video-scroll",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "description": "Video scroll for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -37,15 +37,17 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "video",
+    "scroll"
   ],
-  "repository": "https://github.com/rikardv/react-native-video-scroll",
-  "author": "Rikard Vestergaard & Tim Myllylä <rikve590@student.liu.se> (https://github.com/rikardv)",
+  "repository": "https://github.com/gigglygeeks/react-native-video-scroll",
+  "author": "Rikard Vestergaard & Tim Myllylä",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rikardv/react-native-video-scroll/issues"
+    "url": "https://github.com/gigglygeeks/react-native-video-scroll/issues"
   },
-  "homepage": "https://github.com/rikardv/react-native-video-scroll#readme",
+  "homepage": "https://github.com/gigglygeeks/react-native-video-scroll#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -58,6 +60,7 @@
     "@types/jest": "^28.1.2",
     "@types/react": "~17.0.21",
     "@types/react-native": "0.70.0",
+    "@types/react-native-video": "^5.0.19",
     "commitlint": "^17.0.2",
     "del-cli": "^5.0.0",
     "eslint": "^8.4.1",
@@ -168,8 +171,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
-    "expo": "^49.0.21",
-    "expo-av": "~13.4.1",
     "font-awesome": "^4.7.0",
     "react-native-svg": "^14.1.0"
   }
